@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %-p @%c{1} %d{yyyy-MM-dd HH:mm:ss} ❯ %m%n
+        </Property>
+
+        <Property name="CONSOLE_LEVEL">
+            %highlight{%-p}{FATAL=bg_red black, ERROR=bg_red black, WARN=bg_yellow black, INFO=white, DEBUG=green, TRACE=blue}
+        </Property>
+
+        <Property name="CONSOLE_STAMP">
+            %style{%d{yyyy-MM-dd HH:mm:ss}}{magenta} %style{%c{1}}{cyan}
+        </Property>
+
+        <Property name="CONSOLE_MESSAGE">
+            %highlight{❯ %m%n}{FATAL=red, ERROR=red, WARN=yellow, INFO=white, DEBUG=green, TRACE=blue}
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${CONSOLE_LEVEL} ${CONSOLE_STAMP} ${CONSOLE_MESSAGE}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>
