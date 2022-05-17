@@ -44,8 +44,8 @@ tasks {
     }
 
     withType<Jar> {
-        archiveBaseName.set(project.name)
-        archiveVersion.set(project.version as String)
+        archiveBaseName.set("op65n.org")
+        archiveVersion.set("")
 
         manifest {
             attributes["Main-Class"] = "org.op65n.website.Main"
@@ -56,9 +56,9 @@ tasks {
     }
 
     withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-        archiveBaseName.set(project.name)
+        archiveBaseName.set("op65n.org")
         archiveClassifier.set("")
-        archiveVersion.set(project.version as String)
+        archiveVersion.set("")
 
         val destination = "org.op65n.website.libs"
 
